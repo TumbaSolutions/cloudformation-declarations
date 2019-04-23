@@ -61,6 +61,9 @@ async function main() {
                 rootNamespace.getOrCreateChildType(name);
             }
             async function fetchDocs(url: string) {
+                if (!url) {
+                    return;
+                }
                 const actualUrl = normalizeUrl(url);
                 if(typeof docs[actualUrl] === 'string') {
                     return;
@@ -183,6 +186,9 @@ async function main() {
 
     function renderTypeString(prop: SpecProperty, relativeTo: Namespace): string {
         if(prop.PrimitiveType) {
+            if (prop.PrimitiveType === 'Map') {
+                return `${ renderPropertyType('Map', relativeTo, [renderPrimitiveType('String')]) }`;
+            }
             return renderPrimitiveType(prop.PrimitiveType);
         }
         if(prop.Type) {
