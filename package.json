@@ -1,6 +1,6 @@
 {
   "name": "@tumba-solutions/cloudformation-declarations",
-  "version": "0.2.0",
+  "version": "0.0.0-semantic-release",
   "description": "TypeScript declarations and helpers for writing CloudFormation templates in TS or JS.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
